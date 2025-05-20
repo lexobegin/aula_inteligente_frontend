@@ -1,0 +1,110 @@
+<div class="container-fluid">
+  <a class="navbar-brand" href="#">Aula Inteligente</a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+    <!-- Menú principal -->
+    <ul class="navbar-nav">
+      <!-- Tus ítems de navegación actuales aquí (home, administrador, venta, etc.) -->
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/dashboard"
+          >Dashboard <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <!-- ADMINISTRADOR -->
+      <li class="nav-item dropdown active">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Administrador
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Gestionar Roles</a>
+          <a class="dropdown-item" href="#">Gestionar Permisos</a>
+          <a class="dropdown-item" href="#">Gestionar Usuarios</a>
+          <a class="dropdown-item" href="#">Gestionar Empleado</a>
+          <a class="dropdown-item" href="#">Gestionar Categorías</a>
+          <a class="dropdown-item" href="#">Notificar Stock</a>
+        </div>
+      </li>
+      <!-- VENTA -->
+      <li class="nav-item dropdown active">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Ventas
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Gestionar Productos</a>
+          <a class="dropdown-item" href="#">Gestionar Cliente</a>
+          <a class="dropdown-item" href="#">Registrar Venta</a>
+          <a class="dropdown-item" href="#">Aplicar Descuentos y Promociones</a>
+          <a class="dropdown-item" href="#">Gestionar Métodos de Pago</a>
+          <a class="dropdown-item" href="#">Generar Recibo de Venta</a>
+          <a class="dropdown-item" href="#">Gestionar Reportes</a>
+        </div>
+      </li>
+      <!-- INVENTARIO Y ENVIOS -->
+      <li class="nav-item dropdown active">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Inventarios y Envios
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Gestionar Inventario</a>
+          <a class="dropdown-item" href="#">Gestionar Envío y Seguimiento</a>
+          <a class="dropdown-item" href="#">Devoluciones y Reembolsos</a>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Menú de usuario a la derecha -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle d-flex align-items-center"
+          href="#"
+          id="userDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="fa fa-user-circle fa-lg mr-2"></i> Usuario
+        </a>
+        <div
+          class="dropdown-menu dropdown-menu-right"
+          aria-labelledby="userDropdown"
+        >
+          <a class="dropdown-item" routerLink="/perfil">Perfil</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="logout()">Cerrar Sesión</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

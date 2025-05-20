@@ -1,0 +1,77 @@
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h4 class="text-center font-weight-bold mb-4">Dashboard Académico</h4>
+
+    <!-- Indicadores principales -->
+    <div class="row text-center mb-4">
+      <div class="col-md-4">
+        <div class="card text-white bg-primary">
+          <div class="card-body">
+            <h5 class="card-title">Total de Alumnos</h5>
+            <p class="display-4">{{ totalAlumnos }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-white bg-success">
+          <div class="card-body">
+            <h5 class="card-title">Promedio General de Notas</h5>
+            <p class="display-4">{{ promedioNotas }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-white bg-info">
+          <div class="card-body">
+            <h5 class="card-title">Rendimiento Real vs Predicho</h5>
+            <table class="table table-sm table-striped table-light mt-2">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Alumno</th>
+                  <th>Real</th>
+                  <th>Predicho</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let r of rendimiento">
+                  <td>{{ r.nombre }}</td>
+                  <td>{{ r.real }}</td>
+                  <td>{{ r.predicho }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fichas de alumnos -->
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let alumno of alumnos">
+        <div class="card border-secondary h-100 shadow">
+          <div class="card-header bg-secondary text-white">
+            {{ alumno.nombre }}
+          </div>
+          <div class="card-body">
+            <p><strong>Notas:</strong> {{ alumno.notas.join(", ") }}</p>
+            <p><strong>Asistencia:</strong> {{ alumno.asistencia }}%</p>
+            <p><strong>Participación:</strong> {{ alumno.participacion }}/10</p>
+            <p>
+              <strong>Predicción:</strong>
+              <span
+                class="badge"
+                [ngClass]="{
+                  'badge-danger': alumno.prediccion === 'Bajo rendimiento',
+                  'badge-warning': alumno.prediccion === 'Medio rendimiento',
+                  'badge-success': alumno.prediccion === 'Alto rendimiento'
+                }"
+              >
+                {{ alumno.prediccion }}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
