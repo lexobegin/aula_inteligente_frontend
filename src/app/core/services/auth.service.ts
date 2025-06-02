@@ -20,7 +20,7 @@ export class AuthService {
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   login(username: string, password: string): Observable<any> {
-    const url = `${this.BASE_URL}/api/token/`;
+    const url = `${this.BASE_URL}/api/auth/token/`;
     return this.httpClient.post<any>(url, { username, password }).pipe(
       tap((response) => {
         if (response.access) {
@@ -109,5 +109,124 @@ export class AuthService {
     const payload = JSON.parse(atob(token.split('.')[1]));
     const exp = payload.exp * 1000;
     return Date.now() < exp;
+  }
+
+  //Usuario
+  async allUserPaginated(url: string, token: string): Promise<any> {
+    //const url = `${this.BASE_URL}/api/users/`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    try {
+      const response = this.httpClient.get<any>(url, { headers }).toPromise();
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  //Profesor
+  async allProfesorPaginated(url: string, token: string): Promise<any> {
+    //const url = `${this.BASE_URL}/api/users/`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    try {
+      const response = this.httpClient.get<any>(url, { headers }).toPromise();
+      //console.log('Auth-profesores:', response);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  //Alumnos
+  async allAlumnoPaginated(url: string, token: string): Promise<any> {
+    //const url = `${this.BASE_URL}/api/users/`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    try {
+      const response = this.httpClient.get<any>(url, { headers }).toPromise();
+      //console.log('Auth-profesores:', response);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  //Periodo
+  async allPeriodoPaginated(url: string, token: string): Promise<any> {
+    //const url = `${this.BASE_URL}/api/users/`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    try {
+      const response = this.httpClient.get<any>(url, { headers }).toPromise();
+      //console.log('Auth-profesores:', response);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  //Periodo
+  async allGradoPaginated(url: string, token: string): Promise<any> {
+    //const url = `${this.BASE_URL}/api/users/`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    try {
+      const response = this.httpClient.get<any>(url, { headers }).toPromise();
+      //console.log('Auth-profesores:', response);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  //Materia
+  async allMateriaPaginated(url: string, token: string): Promise<any> {
+    //const url = `${this.BASE_URL}/api/users/`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    try {
+      const response = this.httpClient.get<any>(url, { headers }).toPromise();
+      //console.log('Auth-profesores:', response);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  //Aulas
+  async allAulaPaginated(url: string, token: string): Promise<any> {
+    //const url = `${this.BASE_URL}/api/users/`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    try {
+      const response = this.httpClient.get<any>(url, { headers }).toPromise();
+      //console.log('Auth-profesores:', response);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  //Predicciones de rendimiento
+  async allPrediccionPaginated(url: string, token: string): Promise<any> {
+    //const url = `${this.BASE_URL}/api/users/`;
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    try {
+      const response = this.httpClient.get<any>(url, { headers }).toPromise();
+      //console.log('Auth-profesores:', response);
+      return response;
+    } catch (error) {
+      throw error;
+    }
   }
 }
