@@ -1,0 +1,6 @@
+.sticky-header th {
+  position: sticky;
+  top: 0;
+  background-color: #f8f9fa; /* Color del encabezado */
+  z-index: 1;
+}

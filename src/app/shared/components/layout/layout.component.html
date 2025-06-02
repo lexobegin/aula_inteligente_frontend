@@ -27,7 +27,7 @@
             >Dashboard <span class="sr-only">(current)</span></a
           >
         </li>
-        <!-- ADMINISTRADOR -->
+        <!-- ADMINISTRAR USUARIO -->
         <li class="nav-item dropdown active">
           <a
             class="nav-link dropdown-toggle"
@@ -36,30 +36,23 @@
             data-toggle="dropdown"
             aria-expanded="false"
           >
-            Administrador
+            Administrar Usuarios
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" routerLink="/enProceso">Bitacora</a>
-            <a class="dropdown-item" routerLink="/enProceso">Gestionar Roles</a>
             <a class="dropdown-item" routerLink="/enProceso"
-              >Gestionar Permisos</a
+              >Gestionar Roles Y Permisos</a
             >
-            <a class="dropdown-item" routerLink="/enProceso"
+            <a class="dropdown-item" routerLink="/usuarios"
               >Gestionar Usuarios</a
             >
-            <a class="dropdown-item" routerLink="/enProceso"
-              >Gestionar Empleado</a
+            <a class="dropdown-item" routerLink="/profesores"
+              >Gestionar Profesor</a
             >
-            <a class="dropdown-item" routerLink="/enProceso"
-              >Gestionar Categorías</a
-            >
-            <a class="dropdown-item" routerLink="/enProceso"
-              >Notificar Stock(header)</a
-            >
+            <a hidden class="dropdown-item" routerLink="/enProceso">Bitacora</a>
           </div>
         </li>
-        <!-- VENTA -->
-        <li hidden class="nav-item dropdown active">
+        <!-- ADMINISTRACION ACADEMICA -->
+        <li class="nav-item dropdown active">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -67,32 +60,25 @@
             data-toggle="dropdown"
             aria-expanded="false"
           >
-            Ventas
+            Administración Academica
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" routerLink="/enProceso"
-              >Gestionar Productos</a
+            <a class="dropdown-item" routerLink="/periodo">Gestionar Periodo</a>
+            <a class="dropdown-item" routerLink="/gestiones"
+              >Administar Gestion</a
             >
-            <a class="dropdown-item" routerLink="/enProceso"
-              >Gestionar Cliente</a
+            <a class="dropdown-item" routerLink="/grado">Gestionar Grado</a>
+            <a class="dropdown-item" routerLink="/materias"
+              >Gestionar Materia</a
             >
-            <a class="dropdown-item" routerLink="/enProceso">Registrar Venta</a>
+            <a class="dropdown-item" routerLink="/aulas">Gestionar Aula</a>
             <a class="dropdown-item" routerLink="/enProceso"
-              >Aplicar Descuentos y Promociones</a
-            >
-            <a class="dropdown-item" routerLink="/enProceso"
-              >Gestionar Métodos de Pago</a
-            >
-            <a class="dropdown-item" routerLink="/enProceso"
-              >Generar Recibo de Venta</a
-            >
-            <a class="dropdown-item" routerLink="/enProceso"
-              >Gestionar Reportes</a
+              >Administrar Horario</a
             >
           </div>
         </li>
-        <!-- INVENTARIO Y ENVIOS -->
-        <li hidden class="nav-item dropdown active">
+        <!-- GESTION DE INSCRIPCIONES -->
+        <li class="nav-item dropdown active">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -100,18 +86,46 @@
             data-toggle="dropdown"
             aria-expanded="false"
           >
-            Inventarios y Envios
+            Gestion de Inscripcion
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" routerLink="/enProceso"
-              >Gestionar Inventario</a
+              >Gestionar Apoderado</a
             >
-            <a class="dropdown-item" routerLink="/enProceso"
-              >Gestionar Envío y Seguimiento</a
+            <a class="dropdown-item" routerLink="/alumnos">Gestionar Alumno</a>
+            <a hidden class="dropdown-item" routerLink="/enProceso"
+              >Gestionar Inscripcion</a
             >
-            <a class="dropdown-item" routerLink="/enProceso"
-              >Devoluciones y Reembolsos</a
+          </div>
+        </li>
+        <!-- GESTION DE EVALUACIONES Y RENDIMINETO -->
+        <li class="nav-item dropdown active">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Evaluaciones y Rendimiento
+          </a>
+          <div class="dropdown-menu">
+            <a hidden class="dropdown-item" routerLink="/enProceso"
+              >Registrar Nota</a
             >
+            <a hidden class="dropdown-item" routerLink="/enProceso"
+              >Registrar Asistencia</a
+            >
+            <a hidden class="dropdown-item" routerLink="/enProceso"
+              >Evaluar Participación</a
+            >
+            <a class="dropdown-item" routerLink="/predicciones"
+              >Generar Predicciones</a
+            >
+            <a hidden class="dropdown-item" routerLink="/enProceso"
+              >Predicciones de Rendimiento</a
+            >
+            <a class="dropdown-item" routerLink="/enProceso">Reportes</a>
           </div>
         </li>
       </ul>

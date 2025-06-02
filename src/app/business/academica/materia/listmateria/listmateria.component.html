@@ -1,0 +1,114 @@
+<div class="card shadow-sm">
+  <div class="card-body">
+    <!-- CABECERA -->
+    <div
+      class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3"
+    >
+      <h5 class="mb-2 mb-md-0">Materias</h5>
+      <button routerLink="/materias/create" class="btn btn-primary btn-sm">
+        <i class="fas fa-plus mr-1"></i> Crear Materia
+      </button>
+    </div>
+
+    <!-- BUSCADOR -->
+    <div class="form-group mb-3">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Buscar por nombre"
+        />
+      </div>
+    </div>
+
+    <!-- TABLA DE GESTION -->
+    <div style="max-height: 400px; overflow-y: auto">
+      <div class="table-responsive" style="max-height: 400px; overflow-y: auto">
+        <table class="table table-bordered table-hover table-sm">
+          <thead class="thead-light sticky-header">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <th>Nivel</th>
+              <th class="text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let materia of materiasFiltrados()">
+              <td>{{ materia.id }}</td>
+              <td>{{ materia.nombre }}</td>
+              <td>{{ materia.descripcion }}</td>
+              <td>
+                <span class="badge badge-info">
+                  {{ materia.nivel }}
+                </span>
+              </td>
+
+              <td class="text-center">
+                <div class="dropdown">
+                  <button
+                    class="btn btn-secondary btn-sm dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton{{ materia.id }}"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Opciones
+                  </button>
+                  <div
+                    class="dropdown-menu"
+                    [attr.aria-labelledby]="'dropdownMenuButton' + materia.id"
+                  >
+                    <button
+                      class="dropdown-item"
+                      (click)="editarMateria(materia.id)"
+                    >
+                      <i class="fas fa-eye text-info"></i> Ver
+                    </button>
+                    <button
+                      class="dropdown-item"
+                      (click)="editarMateria(materia.id)"
+                    >
+                      <i class="fas fa-edit text-warning"></i> Editar
+                    </button>
+                    <button
+                      class="dropdown-item"
+                      (click)="eliminarMateria(materia.id)"
+                    >
+                      <i class="fas fa-trash-alt text-danger"></i> Eliminar
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- BOTONES DE PAGINACIÓN -->
+    <div class="d-flex justify-content-end gap-1 mt-3">
+      <button
+        class="btn btn-outline-secondary btn-sm"
+        [disabled]="!previousPageUrl"
+        (click)="loadMaterias(previousPageUrl!)"
+      >
+        ← Anterior
+      </button>
+      <button
+        class="btn btn-outline-secondary btn-sm"
+        [disabled]="!nextPageUrl"
+        (click)="loadMaterias(nextPageUrl!)"
+      >
+        Siguiente →
+      </button>
+    </div>
+  </div>
+</div>
