@@ -111,8 +111,16 @@ export class AuthService {
     return Date.now() < exp;
   }
 
+  private getAuthHeaders(): HttpHeaders {
+    const token = this.getToken();
+    return new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    });
+  }
+
   //Usuario
-  async allUserPaginated(url: string, token: string): Promise<any> {
+  async obtenerTodosLosUsuarios(url: string, token: string): Promise<any> {
     //const url = `${this.BASE_URL}/api/users/`;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
@@ -123,6 +131,48 @@ export class AuthService {
     } catch (error) {
       throw error;
     }
+  }
+
+  crearUsuario(data: any): Observable<any> {
+    const headers = this.getAuthHeaders();
+    //return this.httpClient.post(`${this.BASE_URL}/api/register/`, data, { headers });
+
+    try {
+      const response = this.httpClient.post(
+        `${this.BASE_URL}/api/usuarios/`,
+        data,
+        { headers }
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  obtenerUsuarioPorId(id: number): Observable<any> {
+    const headers = this.getAuthHeaders();
+    const url = `${this.BASE_URL}/api/usuarios/${id}/`; // Ajusta si tu endpoint difiere
+
+    try {
+      const response = this.httpClient.get<any>(url, { headers });
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  actualizarUsuarioPorId(id: number, data: any): Observable<any> {
+    const headers = this.getAuthHeaders();
+    const url = `${this.BASE_URL}/api/usuarios/${id}/`; // Ajusta si tu endpoint difiere
+
+    return this.httpClient.patch<any>(url, data, { headers });
+  }
+
+  eliminarUsuario(id: number): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.httpClient.delete(`${this.BASE_URL}/api/usuarios/${id}/`, {
+      headers,
+    });
   }
 
   //Profesor
